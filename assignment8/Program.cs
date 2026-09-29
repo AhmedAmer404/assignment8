@@ -1,4 +1,5 @@
-﻿using System;
+﻿#region Question 1
+using System;
 
 
 public struct DeliveryAddress
@@ -455,6 +456,70 @@ public class DeliveryCenter
         }
     }
 }
+#endregion
+
+
+#region Question 2
+public class StandardShipment : Shipment
+{
+    public StandardShipment(
+        string trackingCode,
+        string description,
+        decimal weight,
+        decimal deliveryFee,
+        DeliveryAddress destination)
+        : base(
+            trackingCode,
+            description,
+            weight,
+            deliveryFee,
+            destination)
+    {
+    }
+}
+public class ExpressShipment : Shipment
+{
+    public ExpressShipment(
+        string trackingCode,
+        string description,
+        decimal weight,
+        decimal deliveryFee,
+        DeliveryAddress destination,
+        decimal extraFee)
+        : base(
+            trackingCode,
+            description,
+            weight,
+            deliveryFee,
+            destination)
+    {
+        ExtraFee = extraFee;
+    }
+}
+public class InternationalShipment : Shipment
+{
+    public InternationalShipment(
+        string trackingCode,
+        string description,
+        decimal weight,
+        decimal deliveryFee,
+        DeliveryAddress destination,
+        string destinationCountry,
+        decimal customsFee)
+        : base(
+            trackingCode,
+            description,
+            weight,
+            deliveryFee,
+            destination)
+    {
+        DestinationCountry = destinationCountry;
+        CustomsFee = customsFee;
+    }
+}
+
+
+#endregion
 
 
 
