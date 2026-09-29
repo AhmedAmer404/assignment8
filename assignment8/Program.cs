@@ -521,5 +521,29 @@ public class InternationalShipment : Shipment
 
 #endregion
 
+#region Question3 
+public override decimal EstimatedCost
+    {
+        get
+        {
+            return base.EstimatedCost;
+        }
+    }
+    public override decimal EstimatedCost
+    {
+        get
+        {
+            return DeliveryFee + (Weight * 5) + ExtraFee;
+        }
+    }
+    public override decimal EstimatedCost
+    {
+        get
+        {
+            return DeliveryFee + (Weight * 5) + CustomsFee;
+        }
+    }
+#endregion
+
 
 
