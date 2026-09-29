@@ -543,7 +543,45 @@ public override decimal EstimatedCost
             return DeliveryFee + (Weight * 5) + CustomsFee;
         }
     }
-#endregion
+    #endregion
 
+
+    #region Question 4
+
+    public override void PrintShipment()
+    {
+        Console.WriteLine("===== STANDARD SHIPMENT =====");
+
+        Console.WriteLine($"Tracking Code : {TrackingCode}");
+        Console.WriteLine($"Description   : {Description}");
+        Console.WriteLine($"Weight        : {Weight}");
+        Console.WriteLine($"Delivery Fee  : {DeliveryFee}");
+        Console.WriteLine($"Estimated Cost: {EstimatedCost}");
+    }
+    public override void PrintShipment()
+    {
+        Console.WriteLine("===== EXPRESS SHIPMENT =====");
+
+        Console.WriteLine($"Tracking Code : {TrackingCode}");
+        Console.WriteLine($"Description   : {Description}");
+        Console.WriteLine($"Weight        : {Weight}");
+        Console.WriteLine($"Delivery Fee  : {DeliveryFee}");
+        Console.WriteLine($"Extra Fee     : {ExtraFee}");
+        Console.WriteLine($"Estimated Cost: {EstimatedCost}");
+    }
+    public override void PrintShipment()
+    {
+        Console.WriteLine("===== INTERNATIONAL SHIPMENT =====");
+
+        Console.WriteLine($"Tracking Code       : {TrackingCode}");
+        Console.WriteLine($"Description         : {Description}");
+        Console.WriteLine($"Weight              : {Weight}");
+        Console.WriteLine($"Delivery Fee        : {DeliveryFee}");
+        Console.WriteLine($"Destination Country : {DestinationCountry}");
+        Console.WriteLine($"Customs Fee         : {CustomsFee}");
+        Console.WriteLine($"Estimated Cost      : {EstimatedCost}");
+    }
+
+#endregion
 
 
