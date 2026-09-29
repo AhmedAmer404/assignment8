@@ -546,7 +546,7 @@ public override decimal EstimatedCost
     #endregion
 
 
-    #region Question 4
+#region Question 4
 
     public override void PrintShipment()
     {
@@ -582,6 +582,91 @@ public override decimal EstimatedCost
         Console.WriteLine($"Estimated Cost      : {EstimatedCost}");
     }
 
+    #endregion
+
+    #region Question 5
+    private Shipment[] shipments;
+
+    public DeliveryCenter(string centerName)
+{
+    CenterName = centerName;
+    shipments = new Shipment[20];
+}
+public string CenterName { get; set; }
+public Shipment this[int index]
+{
+    get
+    {
+        if (index >= 0 && index < shipments.Length)
+        {
+            return shipments[index];
+        }
+
+        return null;
+    }
+
+    set
+    {
+        if (index >= 0 && index < shipments.Length)
+        {
+            shipments[index] = value;
+        }
+    }
+}
+public Shipment this[string trackingCode]
+{
+    get
+    {
+        for (int i = 0; i < shipments.Length; i++)
+        {
+            if (shipments[i] != null &&
+                shipments[i].TrackingCode == trackingCode)
+            {
+                return shipments[i];
+            }
+        }
+
+        return null;
+    }
+}
+public bool AddShipment(Shipment shipment)
+{
+    for (int i = 0; i < shipments.Length; i++)
+    {
+        if (shipments[i] == null)
+        {
+            shipments[i] = shipment;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+public bool RemoveShipment(string trackingCode)
+{
+    for (int i = 0; i < shipments.Length; i++)
+    {
+        if (shipments[i] != null &&
+            shipments[i].TrackingCode == trackingCode)
+        {
+            shipments[i] = null;
+            return true;
+        }
+    }
+
+    return false;
+}
+public void PrintAllShipments()
+{
+    for (int i = 0; i < shipments.Length; i++)
+    {
+        if (shipments[i] != null)
+        {
+            shipments[i].PrintShipment();
+        }
+    }
+}
 #endregion
 
 
